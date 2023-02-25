@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ZeinApp
+  namespace: AppNS
+  labels:
+    app: myapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ZeinApp
+  template:
+    metadata:
+      labels:
+        app: ZeinApp
+    spec:
+      containers:
+        - name: ZeinApp
+          image: docker.io/zeinsss/finalapp
+          ports:
+            - containerPort: 3000
