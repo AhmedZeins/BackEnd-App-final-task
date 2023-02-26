@@ -21,7 +21,9 @@ pipeline {
                 ls
                 docker login -u ${USERNAME} -p ${PASSWORD}
                 kubectl apply -f /var/jenkins_home/workspace/Finall/NS.yaml
-                kubectl apply -f /var/jenkins_home/workspace/Finall/SA.yaml
+                kubectl apply -f /var/jenkins_home/workspace/Finall/clusterRole.yaml
+                kubectl apply -f /var/jenkins_home/workspace/Finall/roleBinding.yaml
+                kubectl apply -f /var/jenkins_home/workspace/Finall/serviceAccount.yaml
                 kubectl apply -f /var/jenkins_home/workspace/Finall/app.yaml
                 kubectl apply -f/var/jenkins_home/workspace/Finall/lba.yaml
                 """
