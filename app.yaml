@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ZeinApp
+  name: zeinApp
   namespace: app-ns
   labels:
     app: myapp
@@ -9,14 +9,14 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ZeinApp
+      app: zeinApp
   template:
     metadata:
       labels:
-        app: ZeinApp
+        app: zeinApp
     spec:
       containers:
-        - name: ZeinApp
+        - name: zeinApp
           image: docker.io/zeinsss/finalapp
           ports:
             - containerPort: 3000
