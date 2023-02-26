@@ -18,7 +18,10 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'Docker', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                 sh """
+                ls
                 docker login -u ${USERNAME} -p ${PASSWORD}
+                kubectl apply -f /var/jenkins_home/workspace/Final/NS.yaml
+                kubectl apply -f /var/jenkins_home/workspace/Final/SA.yaml
                 kubectl apply -f /var/jenkins_home/workspace/Final/app.yaml
                 kubectl apply -f/var/jenkins_home/workspace/Final/lba.yaml
                 """
