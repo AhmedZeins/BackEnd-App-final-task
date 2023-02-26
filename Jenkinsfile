@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('CI') {
             steps {
-                git 'https://github.com/AhmedZeins/BackEnd-App-final-task.git'
+                git url: 'https://github.com/AhmedZeins/BackEnd-App-final-task.git' , branch: 'main'
                 withCredentials([usernamePassword(credentialsId: 'Docker', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                 sh """
                 docker login -u ${USERNAME} -p ${PASSWORD}
@@ -16,7 +16,6 @@ pipeline {
         }
          stage('CD') {
             steps {
-                git 'https://github.com/AhmedZeins/BackEnd-App-final-task.git'
                 withCredentials([usernamePassword(credentialsId: 'Docker', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                 sh """
                 docker login -u ${USERNAME} -p ${PASSWORD}
