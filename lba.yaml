@@ -8,7 +8,7 @@ metadata:
     service.beta.kubernetes.io/aws-load-balancer-cross-zone-load-balancing-enabled: 'true'
 spec:
   selector:
-    app: ZeinApp
+    app: zeinApp
   type: LoadBalancer
   ports:
     - protocol: TCP
