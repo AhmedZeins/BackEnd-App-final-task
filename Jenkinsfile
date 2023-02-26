@@ -4,8 +4,8 @@ pipeline {
     stages {
         stage('CI') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'Docker', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                 git 'https://github.com/AhmedZeins/BackEnd-App-final-task.git'
+                withCredentials([usernamePassword(credentialsId: 'Docker', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                 sh """
                 docker login -u ${USERNAME} -p ${PASSWORD}
                 docker build . -t zeinsss/app:v1.1 --network host
@@ -16,8 +16,8 @@ pipeline {
         }
          stage('CD') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'Docker', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                 git 'https://github.com/AhmedZeins/BackEnd-App-final-task.git'
+                withCredentials([usernamePassword(credentialsId: 'Docker', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                 sh """
                 docker login -u ${USERNAME} -p ${PASSWORD}
                 kubectl apply -f /var/jenkins_home/workspace/Final/app.yaml
