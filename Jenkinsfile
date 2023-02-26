@@ -20,10 +20,10 @@ pipeline {
                 sh """
                 ls
                 docker login -u ${USERNAME} -p ${PASSWORD}
-                kubectl apply -f /var/jenkins_home/workspace/Final/NS.yaml
-                kubectl apply -f /var/jenkins_home/workspace/Final/SA.yaml
-                kubectl apply -f /var/jenkins_home/workspace/Final/app.yaml
-                kubectl apply -f/var/jenkins_home/workspace/Final/lba.yaml
+                kubectl apply -f /var/jenkins_home/workspace/Finall/NS.yaml
+                kubectl apply -f /var/jenkins_home/workspace/Finall/SA.yaml
+                kubectl apply -f /var/jenkins_home/workspace/Finall/app.yaml
+                kubectl apply -f/var/jenkins_home/workspace/Finall/lba.yaml
                 """
                 }
             }
