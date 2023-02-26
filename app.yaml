@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
         - name: zeinapp
-          image: docker.io/zeinsss/finalapp
+          image: docker.io/zeinsss/app:v1.1
           ports:
             - containerPort: 3000
